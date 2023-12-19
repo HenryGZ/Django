@@ -9,5 +9,14 @@ from django.shortcuts import render
 
 
 #não esquecer de registrar no installed apps no arquivo settings do projeto
+
+context ={
+    'user': 'Fulano de Tal',
+    'chave': 'valor'
+}
+
 def home(request):
-    return render(request, 'home/home.html')
+    return render(
+        request, 
+        'home/index.html',
+        context)
