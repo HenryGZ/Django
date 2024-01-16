@@ -1,7 +1,7 @@
-{%include 'global/partials/head.html'%}
+{% include 'global/partials/head.html' %}
+{% include 'global/partials/menu.html' %}
 
-    <body>
-        {%include 'global/partials/menu.html'%}
-        <h1>{%block texto%}{%endblock%}</h1>
-    </body>
+<h1>{% block texto %}{% endblock texto %}</h1>
+
+</body>
 </html>
