@@ -1,20 +1,31 @@
-from django.shortcuts import render
-#from django.http import HttpResponse
 
-# Create your views here.
+from django.shortcuts import render
+
+
 def blog(request):
     print('blog')
+
     context = {
         'text': 'Olá blog'
     }
-    return render(request, 'blog/index.html', context)
 
-def example(request):
-    print('example')
-    
+    return render(
+        request,
+        'blog/index.html',
+        context
+    )
+
+
+def exemplo(request):
+    print('exemplo')
+
     context = {
-        'text': 'Olá example',
-        'title':'essa é a pagina example'
+        'text': 'Olá exemplo',
+        'title': 'Essa é uma página de exemplo - ',
     }
-    
-    return render(request, 'blog/example.html', context)
+
+    return render(
+        request,
+        'blog/exemplo.html',
+        context
+    )
