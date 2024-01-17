@@ -11,8 +11,14 @@ h1, h2, h3 {
 }
 
 a {
-	color: #333;
-	text-decoration: none;
+    color: #333;
+    text-decoration: none;
+    font-weight: 600; /* torna o texto mais ousado */
+    transition: color 0.3s ease; /* adiciona uma transição suave ao mudar a cor */
+}
+
+a:hover {
+    color: #007BFF; /* muda a cor do link quando o mouse passa sobre ele */
 }
 
 p {
