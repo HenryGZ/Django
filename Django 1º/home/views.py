@@ -1,12 +1,12 @@
 from django.shortcuts import render
 
 context ={
-    'user': 'Fulano de Tal',
-    'chave': 'valor'
+    'text': 'Olá home',
 }
 
 def home(request):
     return render(
         request, 
         'home/index.html',
-        context)
+        context
+        )
