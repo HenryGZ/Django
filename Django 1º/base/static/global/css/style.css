@@ -62,10 +62,8 @@ th {
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
 }
 
-.content {
-	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-	grid-gap: 1rem;
-	margin-top: 1rem;
-	margin-bottom: 1rem;
-}
+@media (min-width: 600px) {
+	.content:not(:has(.single-post)) {
+	  grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
+	}
+  }

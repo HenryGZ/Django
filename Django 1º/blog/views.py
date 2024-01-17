@@ -4,7 +4,6 @@ from django.shortcuts import render
 
 
 def blog(request):
-    print('blog')
 
     context = {
         # 'text': 'Olá blog',
@@ -17,11 +16,17 @@ def blog(request):
         context
     )
 
-def post(request, id):
-    print('post', id)
+def post(request, post_id):
+
+    found_post = None
+    
+    for post in posts:
+        if post['id'] == post_id:
+            found_post = post
+            break
 
     context = {
-        'posts': posts
+        'posts': [found_post]
     }
 
     return render(
@@ -31,7 +36,6 @@ def post(request, id):
     )
 
 def exemplo(request):
-    print('exemplo')
 
     context = {
         'text': 'Olá exemplo',
