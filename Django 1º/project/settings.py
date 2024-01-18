@@ -23,11 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rql=j-)trb_&@4*i737a5jw9!x*9wr&n7tb_u0b-q1vi(8lmn('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False #mudar para false quando for para produção
+DEBUG = True
 
-ALLOWED_HOSTS = [
-    '127.0.0.1'
-    ] #mudar para o ip do servidor quando for para produção, usando o local host para testes
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -125,8 +123,6 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'base' / 'static'
 ]
-
-STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
