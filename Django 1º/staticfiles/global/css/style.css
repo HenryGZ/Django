@@ -1,0 +1,78 @@
+body {
+	font-family: Arial, sans-serif;
+	line-height: 1.6;
+	color: #333;
+	padding: 20px;
+	background-color: #dadada;
+}
+
+h1, h2, h3 {
+	line-height: 1.2;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600; /* torna o texto mais ousado */
+    transition: color 0.3s ease; /* adiciona uma transição suave ao mudar a cor */
+}
+
+a:hover {
+    color: #007BFF; /* muda a cor do link quando o mouse passa sobre ele */
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+img {
+	max-width: 100%;
+}
+
+ul {
+	padding: 0;
+	list-style: none;
+}
+
+ul li {
+	padding: 5px;
+	margin-bottom: 5px;
+	background-color: #c0c0c0;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+table, th, td {
+	border: 1px solid #ccc;
+	padding: 10px;
+	text-align: left;
+}
+
+th {
+	background-color: #c0c0c0;
+}
+
+.post{
+	margin-top: 10px;
+	background: #fff;
+ 	padding: 1.5rem;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.2)
+}
+
+.content:has(.single-post) {
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+.content:not(.content:has(.single-post)){
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    width: 100%; 
+    box-sizing: border-box; 
+}
