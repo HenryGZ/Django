@@ -122,7 +122,12 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / 'base_static',
-    ]
+    ] #diretório onde estão os arquivos estáticos
+
+STATIC_ROOT = BASE_DIR / 'static' #collectstatic
+
+MEDIA_URL = 'media/' #url para acessar as imagens
+MEDIA_ROOT = BASE_DIR / 'media' #local onde as imagens serão salvas
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
