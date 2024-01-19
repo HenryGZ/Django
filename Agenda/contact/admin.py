@@ -15,3 +15,4 @@ class ContactAdmin(admin.ModelAdmin):
     #list_filter = ('created_date',) # Campos que serão filtrados
     list_per_page = 10 # Quantidade de registros por página
     list_max_show_all = 100 # Quantidade máxima de registros a serem exibidos
+    list_display_links = ('id','first_name',) # Campos que serão exibidos como links
