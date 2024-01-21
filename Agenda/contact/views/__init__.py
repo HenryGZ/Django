@@ -6,7 +6,7 @@ como esse arquivo é executado primeiro, as importaçãoes
 parecerão que são diretamente do diretório contact, mas na 
 verdade são do arquivoque está sendo importado
 '''
-from views.contact_views import *
+from .contact_views import *
 
 
 

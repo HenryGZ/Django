@@ -1,8 +1,723 @@
+:root {
+    /* Define as variaveis que podem ser usadas dentro do css */
+
+    /* Define a variável de espaçamento global para 1.5rem */
+    --spacing: 1.5rem;
+
+    /* Define as cores dos links para versões escuras e claras */
+    --link-dark-color: rgb(0, 83, 134);
+    --link-light-color: rgb(156, 217, 255);
+
+    /* Define as cores branco e preto */
+    --clr-white: rgb(245, 245, 255);
+    --clr-black: rgb(0, 0, 30);
+
+    /* Define a cor cinza claro */
+    --clr-light-gray: rgb(230, 230, 245);
+
+    /* Define sombras escuras com diferentes níveis de opacidade */
+    --clr-dark-shadow-5: rgba(0, 0, 10, 5%);
+    --clr-dark-shadow-10: rgba(0, 0, 10, 10%);
+    --clr-dark-shadow-20: rgba(0, 0, 10, 20%);
+
+    /* Define sombras claras com diferentes níveis de opacidade */
+    --clr-light-shadow-5: rgba(200, 200, 255, 5%);
+    --clr-light-shadow-10: rgba(200, 200, 255, 10%);
+    --clr-light-shadow-20: rgba(200, 200, 255, 20%);
+
+    /* Define a largura da página principal e a largura mínima da tabela */
+    --main-page-width: 120rem;
+    --table-min-width: 60rem;
+
+    /* Define tamanhos de fonte de maior para menor */
+    --biggest-font-size: 5rem;
+    --bigger-font-size: 4rem;
+    --big-font-size: 3.2rem;
+    --medium-font-size: 2.4rem;
+    --small-font-size: 1.6rem;
+    --smaller-font-size: 1.4rem;
+    --smallest-font-size: 1.2rem;
+
+    /* Define tempos de transição rápidos, médios e lentos */
+    --transition-fast: 300ms;
+    --transition-medium: 600ms;
+    --transition-slow: 1s;
+
+    /* Define o raio da borda padrão */
+    --default-border-radius: 4px;
+}
+  
+/* O seletor '*' seleciona todos os elementos HTML na página */
+*,
+/* O seletor '*::before' seleciona todos os pseudo-elementos ::before em todos os elementos HTML */
+*::before,
+/* O seletor '*::after' seleciona todos os pseudo-elementos ::after em todos os elementos HTML */
+*::after {
+    /* A propriedade 'margin' define a margem externa de todos os elementos para 0 */
+    margin: 0;
+    /* A propriedade 'padding' define o preenchimento interno de todos os elementos para 0 */
+    padding: 0;
+    /* A propriedade 'box-sizing' define como as dimensões de largura e altura de um elemento são calculadas.
+       'border-box' significa que a largura e altura incluem o conteúdo, o preenchimento e a borda, mas não a margem */
+    box-sizing: border-box;
+}
+  
+  html {
+    font-size: 62.5%;
+    /* define o tamanho da fonte no documento HTML para 10px */
+  }
+  
 body {
-    background-color: #f5f5f5;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    color: #333;
+     /* Define a família de fontes para o corpo do documento. 
+         A lista de fontes é uma lista de fallback, o navegador usará a primeira que estiver disponível. */
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+     /* Define a altura da linha para o corpo do documento. 
+         Isso afeta o espaçamento vertical entre as linhas de texto. */
+     line-height: 1.5;
+
+     /* Define o tamanho da fonte para o corpo do documento. 
+         O valor é uma variável CSS definida anteriormente (--small-font-size). */
+     font-size: var(--small-font-size);
+
+     /* Define a cor do texto para o corpo do documento. 
+         O valor é uma variável CSS definida anteriormente (--clr-black). */
+     color: var(--clr-black);
+
+     /* Ativa o suavização de fonte para o corpo do documento. 
+         Isso pode fazer o texto parecer mais suave e mais fácil de ler em alguns navegadores. */
+     -webkit-font-smoothing: antialiased;
+
+     /* Define a cor de fundo para o corpo do documento. 
+         O valor é uma variável CSS definida anteriormente (--clr-light-gray). */
+     background: var(--clr-light-gray);
+}
+  
+/* O seletor 'img' seleciona todos os elementos de imagem na página */
+/* O seletor 'svg' seleciona todos os elementos SVG na página */
+img,
+svg {
+     /* A propriedade 'display' define como um elemento deve ser exibido.
+         'block' significa que o elemento é exibido como um bloco, ocupando toda a largura disponível e forçando uma quebra de linha antes e depois do elemento */
+     display: block;
+
+     /* A propriedade 'max-width' define a largura máxima de um elemento.
+         '100%' significa que a largura máxima é 100% da largura do elemento pai. Isso garante que as imagens e SVGs não sejam maiores do que seus contêineres */
+     max-width: 100%;
+}
+  
+/* O seletor '.header' seleciona todos os elementos com a classe 'header' na página */
+.header {
+     /* Define a cor de fundo para os elementos com a classe 'header'. 
+         O valor é uma variável CSS definida anteriormente (--clr-black). */
+     background: var(--clr-black);
+
+     /* Define o preenchimento interno para os elementos com a classe 'header'. 
+         O valor é uma variável CSS definida anteriormente (--spacing). */
+     padding: var(--spacing);
+
+     /* Define uma sombra para os elementos com a classe 'header'. 
+         A sombra é deslocada 5px para baixo, tem um desfoque de 10px e uma expansão de 2px. 
+         A cor da sombra é uma variável CSS definida anteriormente (--clr-dark-shadow-20). */
+     box-shadow: 0 5px 10px 2px var(--clr-dark-shadow-20);
+
+     /* Define o índice de empilhamento para os elementos com a classe 'header'. 
+         Um valor maior significa que o elemento aparecerá na frente de outros elementos com um z-index menor. */
+     z-index: 1;
+
+     /* Define a posição dos elementos com a classe 'header' como relativa. 
+         Isso significa que o elemento é posicionado em relação à sua posição normal. */
+     position: relative;
+}
+  
+/* O seletor '.header-heading' seleciona todos os elementos com a classe 'header-heading' na página */
+.header-heading {
+     /* Define o tamanho da fonte para os elementos com a classe 'header-heading'. 
+         O valor é uma variável CSS definida anteriormente (--biggest-font-size). */
+     font-size: var(--biggest-font-size);
+
+     /* Define o alinhamento do texto para os elementos com a classe 'header-heading'. 
+         'center' significa que o texto será centralizado. */
+     text-align: center;
+}
+  
+/* O seletor '.header-link' seleciona todos os elementos com a classe 'header-link' na página */
+.header-link {
+     /* Define a cor do texto para os elementos com a classe 'header-link'. 
+         O valor é uma variável CSS definida anteriormente (--link-light-color). */
+     color: var(--link-light-color);
+
+     /* Define a decoração do texto para os elementos com a classe 'header-link'. 
+         'none' significa que não haverá decoração (como sublinhado). */
+     text-decoration: none;
+
+     /* Define a transição para a propriedade 'filter' dos elementos com a classe 'header-link'. 
+         A duração da transição é uma variável CSS definida anteriormente (--transition-fast), 
+         e o tipo de transição é 'ease-in-out', que começa e termina lentamente, mas é mais rápido no meio. */
+     transition: filter var(--transition-fast) ease-in-out;
+}
+  
+/* O seletor '.header-link:hover' seleciona todos os elementos com a classe 'header-link' quando o mouse está sobre eles */
+.header-link:hover {
+    /* Define o filtro de brilho para os elementos com a classe 'header-link' quando o mouse está sobre eles. 
+       'brightness(70%)' significa que o brilho do elemento será reduzido para 70% do original. */
+    filter: brightness(70%);
+}
+
+/* O seletor '.menu' seleciona todos os elementos com a classe 'menu' na página */
+.menu {
+    /* Define a margem externa para os elementos com a classe 'menu'. 
+       O valor é uma variável CSS definida anteriormente (--spacing). */
+    margin: var(--spacing);
+}
+  
+/* O seletor '.menu-list' seleciona todos os elementos com a classe 'menu-list' na página */
+.menu-list {
+     /* Define o estilo da lista para os elementos com a classe 'menu-list'. 
+         'none' significa que não haverá marcadores de lista. */
+     list-style: none;
+
+     /* Define como um elemento deve ser exibido.
+         'flex' significa que o elemento é um contêiner flexível e os itens dentro dele serão dispostos usando o modelo de layout flexível. */
+     display: flex;
+
+     /* Define o alinhamento do conteúdo ao longo do eixo principal para os elementos com a classe 'menu-list'. 
+         'center' significa que os itens serão centralizados ao longo do eixo principal. */
+     justify-content: center;
+
+     /* Define a direção do fluxo flexível e a capacidade de quebra de linha para os elementos com a classe 'menu-list'. 
+         'row wrap' significa que os itens serão dispostos em linhas, e se um item não couber na linha, ele será movido para a próxima linha. */
+     flex-flow: row wrap;
+}
+  
+/* O seletor '.menu-link' seleciona todos os elementos com a classe 'menu-link' na página */
+.menu-link {
+     /* Define como um elemento deve ser exibido.
+         'block' significa que o elemento é exibido como um bloco, ocupando toda a largura disponível e forçando uma quebra de linha antes e depois do elemento */
+     display: block;
+
+     /* Define o preenchimento interno para os elementos com a classe 'menu-link'. 
+         O valor é uma variável CSS definida anteriormente (--spacing). */
+     padding: var(--spacing);
+
+     /* Define a cor do texto para os elementos com a classe 'menu-link'. 
+         O valor é uma variável CSS definida anteriormente (--link-light-color). */
+     color: var(--link-light-color);
+
+     /* Define a decoração do texto para os elementos com a classe 'menu-link'. 
+         'none' significa que não haverá decoração (como sublinhado). */
+     text-decoration: none;
+
+     /* Define a transição para a propriedade 'background-color' dos elementos com a classe 'menu-link'. 
+         A duração da transição é uma variável CSS definida anteriormente (--transition-fast), 
+         e o tipo de transição é 'ease-in-out', que começa e termina lentamente, mas é mais rápido no meio. */
+     transition: background-color var(--transition-fast) ease-in-out;
+
+     /* Define o raio da borda para os elementos com a classe 'menu-link'. 
+         O valor é uma variável CSS definida anteriormente (--default-border-radius). */
+     border-radius: var(--default-border-radius);
+}
+  
+/* O seletor '.menu-link:hover' seleciona todos os elementos com a classe 'menu-link' quando o mouse está sobre eles */
+.menu-link:hover {
+     /* Define a cor de fundo para os elementos com a classe 'menu-link' quando o mouse está sobre eles. 
+         O valor é uma variável CSS definida anteriormente (--clr-light-shadow-10). */
+     background: var(--clr-light-shadow-10);
+}
+
+/* O seletor '.content' seleciona todos os elementos com a classe 'content' na página */
+.content {
+     /* Define a largura máxima para os elementos com a classe 'content'. 
+         O valor é uma variável CSS definida anteriormente (--main-page-width). */
+     max-width: var(--main-page-width);
+
+     /* Define a margem externa para os elementos com a classe 'content'. 
+         O valor é o dobro da variável CSS definida anteriormente (--spacing), e a margem é aplicada automaticamente em ambos os lados. */
+     margin: calc(var(--spacing) * 2) auto;
+
+     /* Define o preenchimento interno para os elementos com a classe 'content'. 
+         O valor é uma variável CSS definida anteriormente (--spacing). */
+     padding: var(--spacing);
+
+     /* Define a cor de fundo para os elementos com a classe 'content'. 
+         O valor é uma variável CSS definida anteriormente (--clr-white). */
+     background: var(--clr-white);
+
+     /* Define uma sombra para os elementos com a classe 'content'. 
+         A sombra é deslocada 2px para a direita e para baixo, tem um desfoque de 5px. 
+         A cor da sombra é uma variável CSS definida anteriormente (--clr-dark-shadow-20). */
+     box-shadow: 2px 2px 5px var(--clr-dark-shadow-20);
+
+     /* Define o raio da borda para os elementos com a classe 'content'. 
+         O valor é uma variável CSS definida anteriormente (--default-border-radius). */
+     border-radius: var(--default-border-radius);
+}
+
+/* O seletor '.responsive-table' seleciona todos os elementos com a classe 'responsive-table' na página */
+.responsive-table {
+     /* Define a largura para os elementos com a classe 'responsive-table'. 
+         '100%' significa que a largura é 100% da largura do elemento pai. */
+     width: 100%;
+
+     /* Define o comportamento de overflow no eixo x para os elementos com a classe 'responsive-table'. 
+         'auto' significa que as barras de rolagem aparecerão se o conteúdo ultrapassar a largura do elemento. */
+     overflow-x: auto;
+}
+
+/* O seletor '.contacts-table' seleciona todos os elementos com a classe 'contacts-table' na página */
+.contacts-table {
+     /* Define a largura para os elementos com a classe 'contacts-table'. 
+         '100%' significa que a largura é 100% da largura do elemento pai. */
+     width: 100%;
+
+     /* Define a largura mínima para os elementos com a classe 'contacts-table'. 
+         O valor é uma variável CSS definida anteriormente (--table-min-width). */
+     min-width: var(--table-min-width);
+
+     /* Define o comportamento de colapso de borda para os elementos com a classe 'contacts-table'. 
+         'collapse' significa que as células adjacentes compartilharão a mesma borda. */
+     border-collapse: collapse;
+}
+
+/* O seletor '.table-caption' seleciona todos os elementos com a classe 'table-caption' na página */
+.table-caption {
+     /* Define o tamanho da fonte para os elementos com a classe 'table-caption'. 
+         O valor é uma variável CSS definida anteriormente (--medium-font-size). */
+     font-size: var(--medium-font-size);
+
+     /* Define o peso da fonte para os elementos com a classe 'table-caption'. 
+         'bold' significa que o texto será em negrito. */
+     font-weight: bold;
+
+     /* Define o preenchimento interno para os elementos com a classe 'table-caption'. 
+         O valor é uma variável CSS definida anteriormente (--spacing). */
+     padding: var(--spacing);
+}
+  
+/* O seletor '.table-row' seleciona todos os elementos com a classe 'table-row' na página */
+.table-row {
+     /* Define o alinhamento do texto para os elementos com a classe 'table-row'. 
+         'left' significa que o texto será alinhado à esquerda. */
+     text-align: left;
+
+     /* Define como o texto será truncado quando não couber no espaço disponível para os elementos com a classe 'table-row'. 
+         'ellipsis' significa que o texto será cortado e três pontos (...) serão adicionados no final. */
+     text-overflow: ellipsis;
+
+     /* Define a transição para a propriedade 'background-color' dos elementos com a classe 'table-row'. 
+         A duração da transição é uma variável CSS definida anteriormente (--transition-fast), 
+         e o tipo de transição é 'ease-in-out', que começa e termina lentamente, mas é mais rápido no meio. */
+     transition: background-color var(--transition-fast) ease-in-out;
+}
+
+/* O seletor '.table-row:nth-of-type(2n)' seleciona todos os elementos com a classe 'table-row' que são o segundo filho de seu elemento pai */
+.table-row:nth-of-type(2n) {
+     /* Define a cor de fundo para os elementos com a classe 'table-row' que são o segundo filho de seu elemento pai. 
+         O valor é uma variável CSS definida anteriormente (--clr-dark-shadow-5). */
+     background: var(--clr-dark-shadow-5);
+}
+
+/* O seletor '.table-row:not(.table-row-header):hover' seleciona todos os elementos com a classe 'table-row' que não têm a classe 'table-row-header' quando o mouse está sobre eles */
+.table-row:not(.table-row-header):hover {
+     /* Define a cor de fundo para os elementos com a classe 'table-row' que não têm a classe 'table-row-header' quando o mouse está sobre eles. 
+         O valor é uma variável CSS definida anteriormente (--clr-dark-shadow-10). */
+     background: var(--clr-dark-shadow-10);
+}
+
+/* O seletor '.table-row-header' seleciona todos os elementos com a classe 'table-row-header' na página */
+.table-row-header {
+     /* Define a cor de fundo para os elementos com a classe 'table-row-header'. 
+         O valor é uma variável CSS definida anteriormente (--clr-light-gray). */
+     background: var(--clr-light-gray);
+
+     /* Define a cor do texto para os elementos com a classe 'table-row-header'. 
+         O valor é uma variável CSS definida anteriormente (--clr-black). */
+     color: var(--clr-black);
+}
+
+/* O seletor '.table-cel, .table-header' seleciona todos os elementos com a classe 'table-cel' ou 'table-header' na página */
+.table-cel,
+.table-header {
+     /* Define o preenchimento interno para os elementos com a classe 'table-cel' ou 'table-header'. 
+         O valor é uma variável CSS definida anteriormente (--spacing). */
+     padding: var(--spacing);
+}
+  
+/* O seletor '.table-link' seleciona todos os elementos com a classe 'table-link' na página */
+.table-link {
+     /* Define a cor do texto para os elementos com a classe 'table-link'. 
+         O valor é uma variável CSS definida anteriormente (--link-dark-color). */
+     color: var(--link-dark-color);
+
+     /* Define a transição para a propriedade 'color' dos elementos com a classe 'table-link'. 
+         A duração da transição é uma variável CSS definida anteriormente (--transition-fast), 
+         e o tipo de transição é 'ease-in-out', que começa e termina lentamente, mas é mais rápido no meio. */
+     transition: color var(--transition-fast) ease-in-out;
+
+     /* Define a decoração do texto para os elementos com a classe 'table-link'. 
+         'none' significa que não haverá decoração (como sublinhado). */
+     text-decoration: none;
+}
+
+/* O seletor '.table-link:hover' seleciona todos os elementos com a classe 'table-link' quando o mouse está sobre eles */
+.table-link:hover {
+     /* Define a cor do texto para os elementos com a classe 'table-link' quando o mouse está sobre eles. 
+         O valor é uma variável CSS definida anteriormente (--clr-black). */
+     color: var(--clr-black);
+}
+
+/* O seletor '@media (min-width: 600px)' aplica os estilos dentro dele apenas quando a largura da janela de visualização é de pelo menos 600px */
+@media (min-width: 600px) {
+     /* O seletor '.single-contact' seleciona todos os elementos com a classe 'single-contact' na página */
+     .single-contact {
+          /* Define a largura máxima para os elementos com a classe 'single-contact'. 
+              '80%' significa que a largura máxima é 80% da largura do elemento pai. */
+          max-width: 80%;
+
+          /* Define a margem externa para os elementos com a classe 'single-contact'. 
+              O valor é o dobro de uma variável CSS definida anteriormente (--spacing), e a margem é aplicada automaticamente em ambos os lados. */
+          margin: calc(var(--spacing) * 2) auto;
+     }
+}
+
+/* O seletor '.single-contact h1' seleciona todos os elementos 'h1' dentro de elementos com a classe 'single-contact' na página */
+.single-contact h1 {
+     /* Define a margem externa para os elementos 'h1' dentro de elementos com a classe 'single-contact'. 
+         '1rem' significa que a margem é igual ao tamanho da fonte base do documento (geralmente 16px) em todos os lados. */
+     margin: 1rem 0;
+}
+
+/* O seletor '.single-contact p' seleciona todos os elementos 'p' dentro de elementos com a classe 'single-contact' na página */
+.single-contact p {
+     /* Define a margem externa para os elementos 'p' dentro de elementos com a classe 'single-contact'. 
+         '1rem' significa que a margem é igual ao tamanho da fonte base do documento (geralmente 16px) em todos os lados. */
+     margin: 1rem 0;
+}
+  
+/* O seletor '.pagination' seleciona todos os elementos com a classe 'pagination' na página */
+.pagination {
+     /* Define a margem superior para os elementos com a classe 'pagination'. 
+         O valor é uma variável CSS definida anteriormente (--spacing). */
+     margin-top: var(--spacing);
+
+     /* Define como um elemento deve ser exibido.
+         'flex' significa que o elemento é um contêiner flexível e os itens dentro dele serão dispostos usando o modelo de layout flexível. */
+     display: flex;
+
+     /* Define o alinhamento do conteúdo ao longo do eixo principal para os elementos com a classe 'pagination'. 
+         'center' significa que os itens serão centralizados ao longo do eixo principal. */
+     justify-content: center;
+
+     /* Define o preenchimento interno para os elementos com a classe 'pagination'. 
+         O valor é 80% de uma variável CSS definida anteriormente (--spacing). */
+     padding: calc(var(--spacing) * 0.8);
+
+     /* Define o tamanho da fonte para os elementos com a classe 'pagination'. 
+         O valor é uma variável CSS definida anteriormente (--small-font-size). */
+     font-size: var(--small-font-size);
+}
+
+/* O seletor '.pagination .step-links' seleciona todos os elementos com a classe 'step-links' que estão dentro de elementos com a classe 'pagination' na página */
+.pagination .step-links {
+     /* Define como um elemento deve ser exibido.
+         'flex' significa que o elemento é um contêiner flexível e os itens dentro dele serão dispostos usando o modelo de layout flexível. */
+     display: flex;
+
+     /* Define o espaço entre os itens flexíveis para os elementos com a classe 'step-links' que estão dentro de elementos com a classe 'pagination'. 
+         O valor é 80% de uma variável CSS definida anteriormente (--spacing). */
+     gap: calc(var(--spacing) * 0.8);
+}
+
+/* O seletor '.pagination .step-links a' seleciona todos os elementos 'a' que estão dentro de elementos com a classe 'step-links' que estão dentro de elementos com a classe 'pagination' na página */
+.pagination .step-links a {
+     /* Define a cor do texto para os elementos 'a' que estão dentro de elementos com a classe 'step-links' que estão dentro de elementos com a classe 'pagination'. 
+         O valor é uma variável CSS definida anteriormente (--link-dark-color). */
+     color: var(--link-dark-color);
+
+     /* Define a transição para a propriedade 'color' dos elementos 'a' que estão dentro de elementos com a classe 'step-links' que estão dentro de elementos com a classe 'pagination'. 
+         A duração da transição é uma variável CSS definida anteriormente (--transition-fast), 
+         e o tipo de transição é 'ease-in-out', que começa e termina lentamente, mas é mais rápido no meio. */
+     transition: color var(--transition-fast) ease-in-out;
+
+     /* Define a decoração do texto para os elementos 'a' que estão dentro de elementos com a classe 'step-links' que estão dentro de elementos com a classe 'pagination'. 
+         'none' significa que não haverá decoração (como sublinhado). */
+     text-decoration: none;
+
+     /* Define como um elemento deve ser exibido.
+         'block' significa que o elemento é exibido como um bloco, ocupando toda a largura disponível e forçando uma quebra de linha antes e depois do elemento */
+     display: block;
+}
+  
+/* O seletor '.search' seleciona todos os elementos com a classe 'search' na página */
+.search {
+     /* Define como um elemento deve ser exibido.
+         'flex' significa que o elemento é um contêiner flexível e os itens dentro dele serão dispostos usando o modelo de layout flexível. */
+     display: flex;
+
+     /* Define o alinhamento do conteúdo ao longo do eixo principal para os elementos com a classe 'search'. 
+         'center' significa que os itens serão centralizados ao longo do eixo principal. */
+     justify-content: center;
+}
+
+/* O seletor '.search-input' seleciona todos os elementos com a classe 'search-input' na página */
+.search-input {
+     /* Define o tamanho da fonte para os elementos com a classe 'search-input'. 
+         O valor é uma variável CSS definida anteriormente (--medium-font-size). */
+     font-size: var(--medium-font-size);
+
+     /* Define o preenchimento interno para os elementos com a classe 'search-input'. 
+         '1rem' é igual ao tamanho da fonte base do documento (geralmente 16px) e '2rem' é o dobro disso. */
+     padding: 1rem 2rem;
+
+     /* Define a largura para os elementos com a classe 'search-input'. 
+         '100%' significa que a largura é 100% da largura do elemento pai. */
+     width: 100%;
+
+     /* Define a largura máxima para os elementos com a classe 'search-input'. 
+         '32rem' é 32 vezes o tamanho da fonte base do documento (geralmente 16px). */
+     max-width: 32rem;
+
+     /* Define o raio da borda para os elementos com a classe 'search-input'. 
+         O valor é uma variável CSS definida anteriormente (--default-border-radius). */
+     border-radius: var(--default-border-radius);
+
+     /* Define a borda para os elementos com a classe 'search-input'. 
+         A borda tem 1px de largura, é sólida e tem a cor definida pela variável CSS (--link-light-color). */
+     border: 1px solid var(--link-light-color);
+}
+
+/* O seletor '.search-input:focus' seleciona todos os elementos com a classe 'search-input' quando estão em foco (por exemplo, quando o usuário clica dentro de um campo de entrada de texto) */
+.search-input:focus {
+     /* Define a sombra da caixa para os elementos com a classe 'search-input' quando estão em foco. 
+         A sombra tem um deslocamento de 0px horizontalmente e verticalmente, um raio de desfoque de 15px e a cor definida pela variável CSS (--link-light-color). */
+     box-shadow: 0 0 15px var(--link-light-color);
+}
+  
+/* O seletor '.message' seleciona todos os elementos com a classe 'message' na página */
+.message {
+     /* Define a largura máxima para os elementos com a classe 'message'. 
+         '600px' é uma medida fixa em pixels. */
+     max-width: 600px;
+
+     /* Define a margem externa para os elementos com a classe 'message'. 
+         A margem é definida pela variável CSS (--spacing) em todos os lados, exceto no topo, onde é o dobro dessa variável. */
+     margin: var(--spacing) auto;
+     margin-top: calc(var(--spacing) * 2);
+
+     /* Define o preenchimento interno para os elementos com a classe 'message'. 
+         O valor é uma variável CSS definida anteriormente (--spacing). */
+     padding: var(--spacing);
+
+     /* Define o alinhamento do texto para os elementos com a classe 'message'. 
+         'center' significa que o texto será centralizado. */
+     text-align: center;
+
+     /* Define o raio da borda para os elementos com a classe 'message'. 
+         O valor é uma variável CSS definida anteriormente (--default-border-radius). */
+     border-radius: var(--default-border-radius);
+
+     /* Define o tamanho da fonte para os elementos com a classe 'message'. 
+         O valor é uma variável CSS definida anteriormente (--smaller-font-size). */
+     font-size: var(--smaller-font-size);
+}
+
+/* O seletor '.message.success' seleciona todos os elementos com a classe 'success' que estão dentro de elementos com a classe 'message' na página */
+.message.success {
+     /* Define a cor de fundo para os elementos com a classe 'success' que estão dentro de elementos com a classe 'message'. 
+         O valor é uma cor verde com 30% de opacidade. */
+     background: rgba(0, 255, 0, 0.3);
+
+     /* Define a borda para os elementos com a classe 'success' que estão dentro de elementos com a classe 'message'. 
+         A borda tem 1px de largura, é sólida e tem a cor verde com 90% de opacidade. */
+     border: 1px solid rgba(0, 255, 0, 90%);
+}
+
+/* O seletor '.message.error' seleciona todos os elementos com a classe 'error' que estão dentro de elementos com a classe 'message' na página */
+.message.error {
+     /* Define a cor de fundo para os elementos com a classe 'error' que estão dentro de elementos com a classe 'message'. 
+         O valor é uma cor vermelha com 30% de opacidade. */
+     background: rgba(255, 0, 0, 0.3);
+
+     /* Define a borda para os elementos com a classe 'error' que estão dentro de elementos com a classe 'message'. 
+         A borda tem 1px de largura, é sólida e tem a cor vermelha com 90% de opacidade. */
+     border: 1px solid rgba(255, 0, 0, 90%);
+}
+  
+/* O seletor '.message.warning' seleciona todos os elementos com a classe 'warning' que estão dentro de elementos com a classe 'message' na página */
+.message.warning {
+     /* Define a cor de fundo para os elementos com a classe 'warning' que estão dentro de elementos com a classe 'message'. 
+         O valor é uma cor amarela com 30% de opacidade. */
+     background: rgba(255, 255, 0, 0.3);
+
+     /* Define a borda para os elementos com a classe 'warning' que estão dentro de elementos com a classe 'message'. 
+         A borda tem 1px de largura, é sólida e tem a cor amarela com 90% de opacidade. */
+     border: 1px solid rgba(255, 255, 0, 90%);
+}
+
+/* O seletor '.form-wrapper' seleciona todos os elementos com a classe 'form-wrapper' na página */
+.form-wrapper {
+     /* Define a largura máxima para os elementos com a classe 'form-wrapper'. 
+         '60rem' é 60 vezes o tamanho da fonte base do documento (geralmente 16px). */
+     max-width: 60rem;
+
+     /* Define a margem externa para os elementos com a classe 'form-wrapper'. 
+         A margem é definida pela variável CSS (--spacing) em todos os lados. */
+     margin: var(--spacing) auto;
+}
+
+/* O seletor '.form-content' seleciona todos os elementos com a classe 'form-content' na página */
+.form-content {
+     /* Define a margem externa para os elementos com a classe 'form-content'. 
+         A margem é definida pela variável CSS (--spacing) no topo e na base do elemento. */
+     margin: var(--spacing) 0;
+}
+/* O seletor '.form-group' seleciona todos os elementos com a classe 'form-group' na página */
+.form-group {
+     /* Define como um elemento deve ser exibido.
+         'flex' significa que o elemento é um contêiner flexível e os itens dentro dele serão dispostos usando o modelo de layout flexível. */
+     display: flex;
+
+     /* Define a direção dos itens flexíveis dentro do contêiner.
+         'column' significa que os itens serão dispostos em uma coluna, de cima para baixo. */
+     flex-direction: column;
+
+     /* Define o preenchimento interno na parte inferior para os elementos com a classe 'form-group'. 
+         O valor é uma variável CSS definida anteriormente (--spacing). */
+     padding-bottom: var(--spacing);
+}
+
+/* O seletor '.errorlist' seleciona todos os elementos com a classe 'errorlist' na página */
+.errorlist {
+     /* Define o estilo da lista para os elementos com a classe 'errorlist'. 
+         'none' significa que não haverá marcadores de lista. */
+     list-style: none;
+
+     /* Define o tamanho da fonte para os elementos com a classe 'errorlist'. 
+         O valor é uma variável CSS definida anteriormente (--smaller-font-size). */
+     font-size: var(--smaller-font-size);
+
+     /* Define a cor do texto para os elementos com a classe 'errorlist'. 
+         'tomato' é uma cor vermelha-alaranjada. */
+     color: tomato;
+}
+
+/* O seletor '.errorlist.nonfield' seleciona todos os elementos com a classe 'nonfield' que estão dentro de elementos com a classe 'errorlist' na página */
+.errorlist.nonfield {
+     /* Define a cor do texto para os elementos com a classe 'nonfield' que estão dentro de elementos com a classe 'errorlist'. 
+         'inherit' significa que a cor será a mesma do elemento pai. */
+     color: inherit;
+}
+
+/* O seletor '.form-group p' seleciona todos os elementos 'p' que estão dentro de elementos com a classe 'form-group' na página */
+.form-group p {
+     /* Define a margem externa para os elementos 'p' que estão dentro de elementos com a classe 'form-group'. 
+         A margem é de 1em no topo e na base do elemento, e 0 nas laterais. '1em' é igual ao tamanho da fonte do elemento. */
+     margin: 1em 0;
+}
+/* O seletor '.form-group .help-text' seleciona todos os elementos com a classe 'help-text' que estão dentro de elementos com a classe 'form-group' na página.
+    O seletor '.form-group .help-text ~ ul' seleciona todos os elementos 'ul' que são irmãos subsequentes de um elemento com a classe 'help-text' dentro de um elemento com a classe 'form-group'. */
+.form-group .help-text,
+.form-group .help-text ~ ul {
+     /* Define a margem externa para os elementos selecionados. 
+         '0' significa que não haverá margem. */
+     margin: 0;
+
+     /* Define o tamanho da fonte para os elementos selecionados. 
+         O valor é uma variável CSS definida anteriormente (--smallest-font-size). */
+     font-size: var(--smallest-font-size);
+
+     /* Define o estilo da lista para os elementos selecionados. 
+         'none' significa que não haverá marcadores de lista. */
+     list-style: none;
+}
+
+/* O seletor '.form-group input', '.form-group textarea' e '.form-group select' selecionam todos os elementos 'input', 'textarea' e 'select' que estão dentro de elementos com a classe 'form-group' na página */
+.form-group input,
+.form-group textarea,
+.form-group select {
+     /* Define o preenchimento interno para os elementos selecionados. 
+         '1rem' é igual ao tamanho da fonte base do documento (geralmente 16px). */
+     padding: 1rem;
+
+     /* Define o raio da borda para os elementos selecionados. 
+         O valor é uma variável CSS definida anteriormente (--default-border-radius). */
+     border-radius: var(--default-border-radius);
+
+     /* Define a borda para os elementos selecionados. 
+         A borda tem 1px de largura, é sólida e tem a cor definida pela variável CSS (--link-dark-color). */
+     border: 1px solid var(--link-dark-color);
+}
+/* O seletor '.form-group input:focus', '.form-group textarea:focus' e '.form-group select:focus' selecionam todos os elementos 'input', 'textarea' e 'select' que estão em foco (quando o usuário está interagindo com eles) e que estão dentro de elementos com a classe 'form-group' na página */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+     /* Define o contorno para os elementos selecionados. 
+         'none' significa que não haverá contorno. */
+     outline: none;
+
+     /* Define a sombra da caixa para os elementos selecionados. 
+         A sombra tem um deslocamento horizontal e vertical de 0, um raio de desfoque de 5px e a cor definida pela variável CSS (--link-dark-color). */
+     box-shadow: 0 0 5px var(--link-dark-color);
+}
+
+/* O seletor '.form-group label' seleciona todos os elementos 'label' que estão dentro de elementos com a classe 'form-group' na página */
+.form-group label {
+     /* Define o tamanho da fonte para os elementos 'label' que estão dentro de elementos com a classe 'form-group'. 
+         O valor é uma variável CSS definida anteriormente (--smaller-font-size). */
+     font-size: var(--smaller-font-size);
+}
+  
+/* O seletor '.btn' seleciona todos os elementos com a classe 'btn' na página */
+.btn {
+     /* Define a cor de fundo para os elementos com a classe 'btn'. 
+         O valor é uma variável CSS definida anteriormente (--link-dark-color). */
+     background-color: var(--link-dark-color);
+
+     /* Define a cor do texto para os elementos com a classe 'btn'. 
+         O valor é uma variável CSS definida anteriormente (--clr-white). */
+     color: var(--clr-white);
+
+     /* Define o peso da fonte para os elementos com a classe 'btn'. 
+         'bold' significa que o texto será em negrito. */
+     font-weight: bold;
+
+     /* Define a borda para os elementos com a classe 'btn'. 
+         'none' significa que não haverá borda. */
+     border: none;
+
+     /* Define o preenchimento interno para os elementos com a classe 'btn'. 
+         '1rem' é igual ao tamanho da fonte base do documento (geralmente 16px) e '2rem' é o dobro disso. */
+     padding: 1rem 2rem;
+
+     /* Define o raio da borda para os elementos com a classe 'btn'. 
+         O valor é uma variável CSS definida anteriormente (--default-border-radius). */
+     border-radius: var(--default-border-radius);
+
+     /* Define o cursor para os elementos com a classe 'btn'. 
+         'pointer' significa que o cursor será uma mãozinha quando passar sobre o elemento. */
+     cursor: pointer;
+
+     /* Define a transição para o filtro dos elementos com a classe 'btn'. 
+         O valor é uma variável CSS definida anteriormente (--transition-fast) e a função de tempo é 'ease-in-out'. */
+     transition: filter var(--transition-fast) ease-in-out;
+}
+
+/* O seletor '.btn:hover' seleciona todos os elementos com a classe 'btn' quando o cursor do mouse está sobre eles */
+.btn:hover {
+     /* Define o filtro de brilho para os elementos com a classe 'btn' quando o cursor do mouse está sobre eles. 
+         '90%' significa que o brilho será reduzido em 10%. */
+     filter: brightness(90%);
+}
+
+/* O seletor '.btn:focus' e '.btn:active' selecionam todos os elementos com a classe 'btn' quando estão em foco (quando o usuário está interagindo com eles) ou ativos (quando estão sendo clicados) */
+.btn:focus,
+.btn:active {
+     /* Define o filtro de brilho para os elementos com a classe 'btn' quando estão em foco ou ativos. 
+         '80%' significa que o brilho será reduzido em 20%. */
+     filter: brightness(80%);
+
+     /* Define a sombra da caixa para os elementos com a classe 'btn' quando estão em foco ou ativos. 
+         A sombra tem um deslocamento horizontal e vertical de 0, um raio de desfoque de 5px e a cor definida pela variável CSS (--link-dark-color). */
+     box-shadow: 0 0 5px var(--link-dark-color);
 }
