@@ -4,3 +4,5 @@ __pycache__/
 db.sqlite3
 Agenda/db.sqlite3
 static/
+local_settings.py
+```

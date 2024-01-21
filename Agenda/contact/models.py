@@ -39,7 +39,7 @@ class Category(models.Model):
 class Contact(models.Model):
     first_name = models.CharField(max_length=50, blank=False, null=False)#blank=False, null=False -> não pode ser vazio
     last_name = models.CharField(max_length=100, blank=False, null=False)
-    phone_number = models.CharField(max_length=20)
+    phone = models.CharField(max_length=20)
     email = models.EmailField(blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)#auto_now_add=True -> data de criação
     description = models.TextField(blank=True, null=True)

@@ -133,3 +133,10 @@ MEDIA_ROOT = BASE_DIR / 'media' #local onde as imagens serão salvas
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#tenta puxar as configurações do settings local, para usar condigurações
+#especificas para o desenvolvimento
+try:
+    from project.local_settings import *
+except ImportError:
+    ...
