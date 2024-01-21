@@ -17,15 +17,23 @@ category (foreign key)
 show (boolean)
 owner (foreign key)
 picture (imagem)
-
 '''
 
 '''
 Category table
 
 id(pk)
-
 '''
+class Category(models.Model):
+    
+    class Meta: #configurações do nome da classe dentro do admin
+        verbose_name_plural = 'Categories'
+        verbose_name = 'Category'
+    
+    name = models.CharField(max_length=50, blank=False, null=False)
+    
+    def __str__(self):
+        return self.name
 
 class Contact(models.Model):
     first_name = models.CharField(max_length=50, blank=False, null=False)#blank=False, null=False -> não pode ser vazio
@@ -36,6 +44,10 @@ class Contact(models.Model):
     description = models.TextField(blank=True, null=True)
     show = models.BooleanField(default=True)
     picture = models.ImageField(upload_to='pictures/%Y/%m/', blank=True, null=True) #upload_to -> onde a imagem será salva e como será nomeada, com o ano e mês
+    
+    #declaração de chave strangeira: models.ForeignKey('nome da tabela', on_delete=models.CASCADE)
+    #o campo tem que poder receber nll e ser opcional, por isso o blank=True, null=True, para que possa receber null quando for deletada
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True) #on_delete -> o que acontece com os contatos quando a categoria for deletada
     
     def __str__(self):
         return self.first_name + ' ' + self.last_name #retorna o nome do contato parqa aparecer na página de admin do django

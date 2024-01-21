@@ -1,5 +1,6 @@
 from django.contrib import admin
 from contact.models import Contact
+from contact import models
 
 # Register your models here.
 
@@ -16,3 +17,8 @@ class ContactAdmin(admin.ModelAdmin):
     list_per_page = 10 # Quantidade de registros por página
     list_max_show_all = 100 # Quantidade máxima de registros a serem exibidos
     list_display_links = ('id','first_name',) # Campos que serão exibidos como links
+    
+    @admin.register(models.Category)
+    class CategoryAdmin(admin.ModelAdmin):
+        list_display = ('name',)
+        ordering = ('id',)
