@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -44,6 +45,9 @@ class Contact(models.Model):
     description = models.TextField(blank=True, null=True)
     show = models.BooleanField(default=True)
     picture = models.ImageField(upload_to='pictures/%Y/%m/', blank=True, null=True) #upload_to -> onde a imagem será salva e como será nomeada, com o ano e mês
+    
+    #esse owner será o usuário que criou o contato
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL,blank=True, null=True ) #on_delete -> o que acontece com os contatos quando o usuário for deletado
     
     #declaração de chave strangeira: models.ForeignKey('nome da tabela', on_delete=models.CASCADE)
     #o campo tem que poder receber nll e ser opcional, por isso o blank=True, null=True, para que possa receber null quando for deletada
