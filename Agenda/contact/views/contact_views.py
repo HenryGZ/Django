@@ -17,3 +17,18 @@ def index(request):
         'contact/index.html',
         context
         )
+
+def contact(request, contact_id):
+    
+    #pega o contato da tabela onde o campo show é true e o id é igual ao id passado na url
+    single_contact = Contact.objects.get(pk = contact_id, show=True)
+        
+    context = {
+        'contact': single_contact,
+    }
+    
+    return render(
+        request,
+        'contact/contact.html',
+        context
+        )
