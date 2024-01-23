@@ -1,34 +1,42 @@
-{% extends "global/base.html" %}
-
+{% extends 'global/base.html' %}
 {% block content %}
-<div class="form-wrapper">
-    <h2>New Contact</h2>
-    <form action=""
-    method="POST"
-    enctype="multipart/form-data">
+  <div class="form-wrapper">
+    <h2>Contact</h2>
     
-    {% comment %} geração de token de segurança {% endcomment %}
-    {% csrf_token %} 
+    <form 
+      action="{% url 'contact:create' %}"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      {% csrf_token %}      
+      
+      <div class="form-content">
+        {% for field in form %}
+          <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {{ field.errors }}
 
-    {% comment %} <div class="form-content">
-        <div class="form-group">
-            <label for="id_first_name">LABEL</label>
-            <input type="text" name="first_name" maxlenght="255">
+            {% if field.help_text %}
+              <p class="help-text">{{ field.help_text }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      {% if form.non_field_errors %}
+        <div class="form-content">
+          <div class="form-group">
+            <div class="message error">
+              {{ form.non_field_errors }}
+            </div>
+          </div>
         </div>
-    </div>  {% endcomment %}
-
-    {% for field in form %}
+      {% endif %}
+      <div class="form-content">
         <div class="form-group">
-            <label for="{{field.id_for_label}}">{{field.label}}</label>
-            {{field}}
+          <button class="btn" type="submit">Send</button>
         </div>
-    {% endfor %}
-
-
-    <div class="form-content">
-        <div class="form-group">
-            <button class="btn" type="submit"> Send </button>
-        </div>
-    </div>
-
-{% endblock %}
+      </div>
+    </form>
+  </div>
+{% endblock content %}
