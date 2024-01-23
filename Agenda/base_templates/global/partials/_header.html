@@ -22,6 +22,7 @@
             placeholder="Search"
             id="search"
             name="q" 
+            value = "{{ search_value}}" {% comment %} ou como é chamado pelo index tambem é possivel usar request.GET.q {% endcomment %}
             >
             <!-- q de query -->
         </form>

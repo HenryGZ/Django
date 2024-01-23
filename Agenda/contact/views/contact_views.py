@@ -61,7 +61,8 @@ def search(request):
     
     context = {
         'contacts': contacts,
-        'site_title':'Search -'
+        'site_title':'Search -',
+        'search_value': search_value,    #passa o valor tratado da busca para o template, permite que o valor fique no search e não seja limpo
     }
     
     return render(
