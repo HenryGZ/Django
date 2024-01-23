@@ -2,16 +2,23 @@ from django.shortcuts import render
 from contact.models import Contact
 from django.shortcuts import get_object_or_404, redirect
 from django.db.models import Q
+from django.core.paginator import Paginator
+from django.shortcuts import render
+
 
 def index(request):
     
     #pega os contatos da tabela onde o campo show é true e ordena por id
-    contacts = Contact.objects.filter(show=True).order_by('id')[:10]
+    contacts = Contact.objects.filter(show=True).order_by('id')
+    
+    #cria e define a paginação da lista de contatos
+    paginator = Paginator(contacts, 30)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     
     #print(contacts.query) mostra a query que está sendo executada
-    
     context = {
-        'contacts': contacts,
+        'page_obj': page_obj,
         'site_title':'Contatos -'
     }
     
@@ -57,10 +64,15 @@ def search(request):
         Q(first_name__icontains=search_value) | Q(last_name__icontains=search_value)
         )
     
+    #cria e define a paginação da lista de contatos
+    paginator = Paginator(contacts, 30)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    
     #print(contacts.query) mostra a query que está sendo executada
     
     context = {
-        'contacts': contacts,
+        'page_obj': page_obj,
         'site_title':'Search -',
         'search_value': search_value,    #passa o valor tratado da busca para o template, permite que o valor fique no search e não seja limpo
     }
