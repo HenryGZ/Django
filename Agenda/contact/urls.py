@@ -12,4 +12,7 @@ urlpatterns = [
     path('contact/create/', views.create, name='create'), #create
     path('contact/update/<int:contact_id>/', views.update, name='update'), #update
     path('contact/delete/<int:contact_id>/', views.delete, name='delete'), #delete
+    
+    #create user
+    path('user/register/', views.register, name='register'),
 ]
