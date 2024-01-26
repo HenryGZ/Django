@@ -45,7 +45,7 @@ def contact(request, contact_id):
     
     context = {
         'contact': single_contact,
-        'site_title': f'{single_contact.name} {single_contact.last_name} -'
+        'site_title': f'{single_contact.first_name} {single_contact.last_name} -'
     }
     
     return render(

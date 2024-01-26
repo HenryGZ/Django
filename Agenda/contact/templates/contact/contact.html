@@ -11,5 +11,22 @@
         <p><b>Created Date:  </b> {{contact.created_date}}</p>
         <p><b>Description:  </b> {{contact.description}}</p>
         <p><b>Category:  </b> {{contact.category.name}}</p>
+
+        {% if contact.picture %}
+        <p>
+            <img src="{{contact.picture.url}}" alt="{{ contact.first_name }} {{contact.last_name}}" class="img-thumbnail">
+        </p>
+        {% endif %}
+        <div class="contact-links">
+            <a class="btn btn-link contact-links"href="{% url 'contact:update' contact.id %}">update</a>
+            <form action="{% url "contact:delete" contact.id %}" method="POST">
+                {% csrf_token %}
+                {% if confirmation %}
+                    <button type="submit" class="btn btn-link btn-delete contact-links">Confirma?</button>
+                {% else %}
+                    <a class="btn btn-link btn-delete contact-links" href="{% url 'contact:delete' contact.id %}?confirmation=true">Delete</a>
+                {% endif %}
+            </form>
+        </div>
     </div>
 {% endblock content%}

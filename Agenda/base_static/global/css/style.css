@@ -721,3 +721,20 @@ svg {
          A sombra tem um deslocamento horizontal e vertical de 0, um raio de desfoque de 5px e a cor definida pela variável CSS (--link-dark-color). */
      box-shadow: 0 0 5px var(--link-dark-color);
 }
+.btn-link {
+    font-size: var(--small-font-size);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 1rem;
+    display: block;
+    line-height: var(--small-font-size);
+  }
+
+  .btn-delete {
+    background: tomato;
+  }
+
+.contact-links {
+    display: flex;
+    justify-content: space-between; /* opcional: adiciona espaço entre os botões */
+}
