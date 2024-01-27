@@ -555,6 +555,16 @@ svg {
      border: 1px solid rgba(255, 255, 0, 90%);
 }
 
+.message.info {
+    /* Define a cor de fundo para os elementos com a classe 'warning' que estão dentro de elementos com a classe 'message'. 
+        O valor é uma cor amarela com 30% de opacidade. */
+    background: rgba(0, 0, 255, 0.3);
+
+    /* Define a borda para os elementos com a classe 'warning' que estão dentro de elementos com a classe 'message'. 
+        A borda tem 1px de largura, é sólida e tem a cor amarela com 90% de opacidade. */
+    border: 1px solid rgba(0, 0, 255, 0.9);
+}
+
 /* O seletor '.form-wrapper' seleciona todos os elementos com a classe 'form-wrapper' na página */
 .form-wrapper {
      /* Define a largura máxima para os elementos com a classe 'form-wrapper'. 
