@@ -4,11 +4,10 @@ from django.shortcuts import get_object_or_404, redirect, render
 
 from contact.models import Contact
 
-
 def index(request):
     contacts = Contact.objects \
         .filter(show=True)\
-        .order_by('-id')
+        .order_by('id')
 
     paginator = Paginator(contacts, 10)
     page_number = request.GET.get("page")
@@ -24,7 +23,6 @@ def index(request):
         'contact/index.html',
         context
     )
-
 
 def search(request):
     search_value = request.GET.get('q', '').strip()
@@ -57,7 +55,6 @@ def search(request):
         'contact/index.html',
         context
     )
-
 
 def contact(request, contact_id):
     # single_contact = Contact.objects.filter(pk=contact_id).first()
