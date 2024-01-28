@@ -71,4 +71,4 @@ def user_update(request):
         )
 
     form.save()
-    return redirect('contact:user_update')
+    return redirect('contact:login')
