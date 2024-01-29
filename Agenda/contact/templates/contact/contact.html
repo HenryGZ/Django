@@ -17,6 +17,8 @@
             <img src="{{contact.picture.url}}" alt="{{ contact.first_name }} {{contact.last_name}}" class="img-thumbnail">
         </p>
         {% endif %}
+
+        {% if user == contact.owner %}
         <div class="contact-links">
             <a class="btn btn-link contact-links"href="{% url 'contact:update' contact.id %}">update</a>
             <form action="{% url "contact:delete" contact.id %}" method="POST">
@@ -28,5 +30,6 @@
                 {% endif %}
             </form>
         </div>
+        {% endif %}
     </div>
 {% endblock content%}
